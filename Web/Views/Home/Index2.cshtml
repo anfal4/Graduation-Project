@@ -1,0 +1,76 @@
+﻿@model HomeViewModel
+<head>
+    <!-- Vendor CSS Files -->
+    <link href="~/profile/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/profile/assets/css/about.css" rel="stylesheet">
+
+
+
+
+</head>
+<main id="main" style="background-color: #9BA4B4">
+    <!-- ======= About Section Mostafa ======= -->
+
+
+
+
+    @foreach (var admin in Model.admin)
+    {
+        <section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="box-shadow-full">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-5">
+                                            <div class="about-img">
+                                                <img src="~/imgeteam/@admin.Avatar" class="img-fluid rounded b-shadow-a" alt="">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-7">
+                                            <div class="about-info">
+                                                <br><br>
+                                                <p><span class="title-s">Name: </span> <span>@admin.FullName</span></p>
+                                                <p><span class="title-s">The field:</span> <span>@admin.field</span></p>
+                                                <p><span class="title-s">Email: </span> <span>@admin.Email</span></p>
+                                                <p><span class="title-s">Phone: </span> <span>...</span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="about-me pt-4 pt-md-0">
+                                        <div class="title-box-2">
+                                            <h5 class="title-left">
+                                                About me
+                                            </h5>
+                                        </div>
+
+                                       @admin.about
+
+                                        
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End About Section -->
+    }
+
+    <!-- End About Section -->
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients" style="background-color: #fff;">
+        <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Clients Section -->
+</main>

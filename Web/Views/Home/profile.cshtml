@@ -1,0 +1,113 @@
+﻿@model HomeViewModel
+
+<head>
+    <!-- Vendor CSS Files -->
+    <link href="~/profile/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/profile/assets/css/about.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box-shadow-full">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <div class="about-img">
+                                          <img src="~/imgeteam/huda4.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-7">
+                                        <div class="about-info">   
+                                            <br><br>
+                                            <p><span class="title-s">Name: </span> <span>Dr.Huda Naji Nawaf Al-Mamory</span></p>
+                                            <p><span class="title-s">The field:</span> <span>Social Networks & recommender system</span></p>
+                                            <p><span class="title-s">Email: </span> <span>huda.almamory@uobabylon.edu.iq</span></p>
+                                            <p><span class="title-s">Phone: </span> <span>...</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-mf">
+                                    <p class="title-s">Skill</p>
+                                    <span>Matlab</span> <span class="pull-right">85%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span>CSS3</span> <span class="pull-right">75%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span>PHP</span> <span class="pull-right">50%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-me pt-4 pt-md-0">
+                                    <div class="title-box-2">
+                                        <h5 class="title-left">
+                                            About me
+                                        </h5>
+                                    </div>
+                                    Huda Naji graduated from Baghdad University with a BSc in statistical science.She qualified to undertake a Master's program in computer science and received a Master of Science in computer science from the Faculty of Science at Babylon University after successfully completing a three-month qualifying course in computer science.After completing a 6-month research program titled Computation model for social network at Liverpool John Moores University in the school of computing and mathematical sciences in 2012, she went on to receive her Ph. D. in Data mining of Social networks and the recommender systems from the Faculty of Science of Babylon University in 2014.She is currently a professor in the Babylon University Faculty of Information technology  information networks department.Her research interests include recommender systems and data mining in online social networks
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Section -->
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients" style="background-color: #fff;">
+        <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Clients Section -->
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg" style="background-color: #9BA4B4; margin-top: -90px;">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+                <h2>Publications</h2>
+                <p>Here is all the research I've done.</p>
+            </div>
+            @foreach (var research in Model.researches)
+            {
+        <div data-aos="fade-up">
+            <div class="icon-box">
+                <div class="icon"></div>
+                <h4 class="title"><a href="@research.link" target="_blank">@research.ResearchName</a></h4>
+                <p class="description">
+                    @research.Discription<br> <br>@research.year<br>
+                </p>
+            </div>
+            <br />
+        </div>
+            }
+            </div>
+       
+        </section>
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients" style="background-color: #fff;">
+        <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Clients Section -->
+</body>

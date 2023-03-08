@@ -1,0 +1,134 @@
+﻿@model HomeViewModel
+
+<head>
+    <!-- Vendor CSS Files -->
+    <link href="~/profile/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/profile/assets/css/about.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box-shadow-full">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-5">
+                                        <div class="about-img">
+                                            <img src="~/imgeteam/4b8febf152ce0400594a328660ec4b5f.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 col-md-7">
+                                        <div class="about-info">
+                                            <br>
+                                            <p><span class="title-s">Name: </span> <span>Asst. Lec.Zainab Khairallah Kadhim</span></p>
+                                            <p><span class="title-s">The field:</span> <span>recommendation system</span></p>
+                                            <p><span class="title-s">Email: </span> <span>zainab_khairallah@itnet.uobabylon.edu.iq</span></p>
+                                            <p><span class="title-s">Phone: </span> <span> ...</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="skill-mf">
+                                    <p class="title-s">Skill</p>
+                                    <span>C++</span> <span class="pull-right">85%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span>Visual Basic</span> <span class="pull-right">75%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span>Swift</span> <span class="pull-right">50%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <span>Matlab Programs</span> <span class="pull-right">90%</span>
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="about-me pt-4 pt-md-0">
+                                    <div class="title-box-2">
+                                        <h5 class="title-left">
+                                            About me
+                                        </h5>
+                                    </div>
+
+                                    <p class="lead">
+                                        <B>Education :</B>
+                                        Master of Inforamtion Technology (Software), UNIVERSITY OF BABYLON, Babal, IRAQ (2014 - 2017).
+                                        Bachelor of Mathematics & Computer science (Computer Science),UNIVERSITY OF KUFA, Najaf, IRAQ (2009 - 2013).
+
+                                    </p>
+                                    <p class="lead">
+                                        <B>Certificates</B>
+                                        -	Completed Integral English Couse having been examined by Linguaphone Institute Ltd., London ,UK in Babylon Branch (2014).
+                                        -	Passed the exam in the ( Windows 7 , Microsoft Office 2010 Email and Internet)(2013).
+
+                                    </p>
+                                    <p class="lead">
+                                        <B>Projects:</B>
+                                        •	Designed a software system to recommend items to users based on
+                                        their interested and the personal information.
+                                        •	Project has created to comparison between Original and
+                                        counterfeit currency Images.
+
+                                    </p>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- End About Section -->
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients" style="background-color: #fff;">
+        <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Clients Section -->
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services section-bg" style="background-color: #9BA4B4; margin-top: -90px;">
+        <div class="container">
+
+            <div class="section-title" data-aos="fade-up">
+                <h2>Publications</h2>
+                <p>Here is all the research I've done.</p>
+            </div>
+            @foreach (var research in Model.researches)
+            {
+                <div data-aos="fade-up">
+                    <div class="icon-box">
+                        <div class="icon"></div>
+                        <h4 class="title"><a href="https://www.researchgate.net/publication/312191313_Influential_Nodes_Based_Alleviation_of_User_Cold-Start_Problem_in_Recommendation_System" target="_blank">@research.ResearchName</a></h4>
+                        <p class="description">
+                            @research.Discription<br> <br>@research.year<br>
+                        </p>
+                    </div>
+                    <br />
+                </div>
+            }
+        </div>
+
+    </section>
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients" style="background-color: #fff;">
+        <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Clients Section -->
+</body>

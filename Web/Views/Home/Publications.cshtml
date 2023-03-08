@@ -1,0 +1,43 @@
+﻿    <!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs" style="background-color: #9BA4B4;">
+    <div class="container">
+        <ol>
+            <li><a asp-action="Index" asp-controller="Home">Home</a></li>
+            <li>Publications</li>
+        </ol>
+        <h2>Publications</h2>
+    </div>
+</section><!-- End Breadcrumbs -->
+<!-- ======= Clients Section ======= -->
+<section id="clients" class="clients" style="background-color: #fff;">
+    <div class="container" data-aos="fade-up">
+    </div>
+</section><!-- End Clients Section -->
+<!-- ======= Services Section ======= -->
+<section id="services" class="services section-bg" style="background-color: #9BA4B4; margin-top: -90px;">
+    <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+            <h2>Publications</h2>
+            <p>Here is all the research I've done.</p>
+        </div>
+        @foreach (var research in Model.researches)
+        {
+            <div data-aos="fade-up">
+                <div class="icon-box">
+                    <div class="icon"></div>
+                    <h4 class="title"><a href="@research.link" target="_blank">@research.ResearchName</a></h4>
+                    <p class="description">
+                        @research.Discription<br> <br>@research.year<br>
+                    </p>
+                </div>
+                <br />
+            </div>
+        }
+    </div>
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients" style="background-color: #fff;">
+        <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Clients Section -->
+</section>

@@ -1,6 +1,6 @@
 ﻿namespace Core.Entities
 {
-    public class admin :EntityBase
+    public class admin : EntityBase
     {
         public string FullName { get; set; }
         public string field { get; set; }

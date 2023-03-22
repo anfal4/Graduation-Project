@@ -1,0 +1,76 @@
+﻿@model HomeViewModel
+@*@foreach (var research in Model.researches)
+    {*@
+@*        <h4 class="title"><a asp-controller="Home" asp-action="Preview" asp-route-id="@Model.researches">@Model.researches.</a></h4>
+*@    @*}*@
+
+
+
+
+@*<h1>
+        Test2
+    </h1>
+
+        Please Click Here to View Full Text*@
+
+<head>
+    <!-- Vendor CSS Files -->
+    <link href="~/profile/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/profile/assets/css/about.css" rel="stylesheet">
+
+
+
+</head>
+
+<!-- ======= About Section ======= -->
+@foreach (var research in Model.researches)
+{
+    <section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="box-shadow-full">
+                        <div class="row">
+
+                            <div class="row">
+
+                                <h3>Research information</h3><br />
+
+
+                                <div class="portfolio-info">
+                                    <ul>
+                                        <li><strong>Research Name</strong>: @research.ResearchName </li>
+                                        <br />
+                                        <li><strong>Discription</strong>: @research.Discription  </li>
+                                        <br>
+                                        <li><strong>Research date</strong>: @research.year </li>
+                                        <br>
+                                        <li><strong>Research URL</strong>: <a href="@research.link"> Please Click Here</a></li>
+                                        <br>
+                                        <li><strong>Research Reads </strong>: @research.reads </li>
+                                        <br>
+                                        <li><strong>Research owner</strong>: @research.owner   </li>
+                                        <br>
+
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </section>}<!-- End About Section -->
+    <!-- ======= Clients Section ======= -->
+    <section id="clients" class="clients" style="background-color: #fff;">
+        <div class="container" data-aos="fade-up">
+        </div>
+    </section><!-- End Clients Section -->

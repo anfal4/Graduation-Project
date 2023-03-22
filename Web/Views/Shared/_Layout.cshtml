@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@inject SignInManager<IdentityUser> signInManager;
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -48,7 +50,7 @@
                 <ul>
                     <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="Home" id="home">Home</a></li>
                     <li><a class="nav-link scrollto" href="#about">About</a></li>
-                    <li><a asp-action="Publications" asp-controller="Home" >Publications</a></li>
+                    <li><a asp-action="Publications" asp-controller="Home">Publications</a></li>
                     <li class="dropdown">
                         <a href="#values"><span>Research</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
@@ -85,19 +87,61 @@
 
                         </ul>
                     </li>
-                    <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-                    <li><a class="nav-link scrollto" id="join" asp-action="Login" asp-controller="Home">Join us</a></li>
-                    <div style="margin-right: 8px; margin-left: 70px;">
-                        <input type="text" placeholder="Search..." class="input-Search">
-                        <button type="submit" class="button-Search"><i class="bi bi-search"></i></button>
+                    @*<li><a class="nav-link scrollto" href="#contact">Contact</a></li>*@
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <li>
+                            <a class="nav-link scrollto">
+                                <form method="post" asp-action="Logout" asp-controller="Account">
+                                    <button type="submit" class="nav-link btn btn-link py-0"
+                                            style="width:auto">
+                                        Logout <b>@User.Identity.Name</b> 
+                                    </button>
+
+                                </form>
+                            </a>
+                        </li>
+
+
+
+                        @*<li><a class="nav-link scrollto" asp-action="Register" asp-controller="Account">Register</a></li>*@
+                    }
+                    else
+                    {
+                        <li><a class="nav-link scrollto" id="join" asp-action="Register" asp-controller="Account">Register</a></li>
+                        <li><a class="nav-link scrollto" id="join" asp-action="Login" asp-controller="Account">Login</a></li>
+
+                    }
+
+                    <!-- search bar right align -->
+                    <div class="search">
+                        <form action="#">
+                            <input type="text"
+                                   placeholder=" Search ..."
+                                   name="search">
+                            <button asp-action="search" asp-controller="Home">
+                                <i class="bi bi-search" style="font-size: 18px;">
+                                </i>
+                            </button>
+                        </form>
                     </div>
+</div>
 
 
-                </ul>
-                
-                <i class="bi bi-list mobile-nav-toggle"></i>
-            </nav><!-- .navbar -->
+        </ul>
+        @*<div style="margin-right: 8px; margin-left: 70px;  margin-top:29px">
+                            <input type="text" placeholder="Search..." style="display:inline" class="input-Search">
 
+                                <a asp-action="search" asp-controller="Home" style="margin-left: 160px; background-color: #14274E;
+        "
+
+                                   ><i class="bi bi-search"></i></a>
+
+
+                        </div>*@
+
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
         </div>
     </header><!-- End Header -->
    
@@ -124,9 +168,9 @@
                     <div class="col-lg-2 col-md-6 footer-links">
                         <h4>Useful Links</h4>
                         <ul>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#hero">Home</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#about">About us</a></li>
-                            <li><i class="bx bx-chevron-right"></i> <a href="#team">Research Group</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">Home</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a asp-action="Index" asp-controller="Home">About us</a></li>
+                            <li><i class="bx bx-chevron-right"></i> <a asp-action="Index2" asp-controller="Home">Research Group</a></li>
                         </ul>
                     </div>
 

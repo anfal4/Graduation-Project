@@ -91,18 +91,48 @@
             </div>
             @foreach (var research in Model.researches)
             {
-        <div data-aos="fade-up">
-            <div class="icon-box">
-                <div class="icon"></div>
-                <h4 class="title"><a href="@research.link" target="_blank">@research.ResearchName</a></h4>
-                <p class="description">
-                    @research.Discription<br> <br>@research.year<br>
-                </p>
-            </div>
-            <br />
-        </div>
+                if (research.owner== "Dr.Huda Naji Nawaf Al-Mamory")
+                {
+
+                
+                <div data-aos="fade-up">
+
+                    <div class="icon-box">
+                        <div class="icon">
+                            @research.year
+                        </div>
+                        <h4 class="title"><a asp-controller="Home" asp-action="Preview" asp-route-id="@research.Id">@research.ResearchName</a></h4>
+                        <p class="description">
+                            @research.Discription
+                        </p>
+                        <section id="blog" class="blog">
+                            <div data-aos="fade-up" style="margin-left:-30px; margin-top: -23px;  color: #14274E; ">
+
+                                <div>
+
+                                    <div>
+
+                                        <article class="entry entry-single" style="box-shadow: none;">
+
+                                            <div class="entry-meta">
+                                                <ul>
+                                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-single.html">Dr.Huda Naji Nawaf Al-Mamory</a></li>
+                                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-single.html"><time datetime="2020-01-01">@research.year</time></a></li>
+                                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-single.html">@research.reads Reads</a></li>
+                                                </ul>
+                                            </div>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <br />
+
+                }
             }
-            </div>
+        </div>
        
         </section>
     <!-- ======= Clients Section ======= -->

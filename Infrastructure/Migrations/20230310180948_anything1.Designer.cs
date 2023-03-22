@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230303104737_Enas")]
-    partial class Enas
+    [Migration("20230310180948_anything1")]
+    partial class anything1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -39,30 +39,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Address");
-                });
-
-            modelBuilder.Entity("Core.Entities.Enas", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
-
-                    b.Property<string>("Discription")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ResearchName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("link")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("enas");
                 });
 
             modelBuilder.Entity("Core.Entities.admin", b =>
@@ -99,7 +75,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("da9a3812-4ee7-4da0-b58f-f0edf8979f94"),
+                            Id = new Guid("1a39714e-9d79-4730-9b61-79af1c3021ae"),
                             Avatar = "huda4.jpg",
                             Email = "huda.almamory@uobabylon.edu.iq",
                             FullName = "Dr.Huda Naji Nawaf Al-Mamory",
@@ -124,12 +100,18 @@ namespace Infrastructure.Migrations
                     b.Property<string>("link")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("owner")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("reads")
+                        .HasColumnType("int");
+
                     b.Property<int>("year")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Researches");
+                    b.ToTable("researches");
                 });
 
             modelBuilder.Entity("Core.Entities.admin", b =>
@@ -138,7 +120,7 @@ namespace Infrastructure.Migrations
                         .WithMany()
                         .HasForeignKey("AddressId");
 
-                    
+                    b.Navigation("Address");
                 });
 #pragma warning restore 612, 618
         }

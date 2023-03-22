@@ -111,6 +111,11 @@
             </div>
             @foreach (var research in Model.researches)
             {
+
+                if (research.owner.Contains("Dr.Enas Fadhil Abdullah"))
+                {
+
+                
                 <div data-aos="fade-up">
                     <div class="icon-box">
                         <div class="icon"></div>
@@ -121,6 +126,7 @@
                     </div>
                     <br />
                 </div>
+                }
             }
         </div>
 

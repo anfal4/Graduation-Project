@@ -1,12 +1,15 @@
 ﻿using Core.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace Infrastructure
 {
-    public class DataContext : DbContext
+
+    public class DataContext : IdentityDbContext
     {
         public DataContext(DbContextOptions<DataContext> options)
         : base(options)
@@ -18,7 +21,6 @@ namespace Infrastructure
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<admin>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
             modelBuilder.Entity<research>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
-            modelBuilder.Entity<Enas>().Property(x => x.Id).HasDefaultValueSql("NEWID()");
 
 
             modelBuilder.Entity<admin>().HasData(
@@ -35,10 +37,11 @@ namespace Infrastructure
                 );
 
         }
-        public DbSet<admin> admins { get; set; }
-        public DbSet<research> Researches { get; set; }
+        public DbSet<ApplicationUser> users { get; set; }
 
-        public DbSet<Enas> enas { get; set; }
+        public DbSet<admin> admins { get; set; }
+        public DbSet<research> researches { get; set; }
+
 
 
     }

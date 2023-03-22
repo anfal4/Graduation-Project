@@ -1,0 +1,40 @@
+﻿@model Core.Entities.research
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div style="margin:160px; padding:120px;">
+    <h1>Details</h1>
+
+    <div>
+        <h4>PortfolioItem</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.ResearchName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.ResearchName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Discription)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Discription)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.year)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.year)
+            </dd>
+            
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" class="btn btn-dark" asp-route-id="@Model.Id">Edit</a> |
+        <a asp-action="Index" class="btn btn-outline-dark">Back to List</a>
+    </div>
+
+</div>

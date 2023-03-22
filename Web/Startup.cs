@@ -1,3 +1,4 @@
+using Core.Entities;
 using Core.Interfaces;
 using Infrastructure;
 using Infrastructure.UnitOfWork;
@@ -34,7 +35,17 @@ namespace Web
                  options.UseSqlServer(
                      configuration.GetConnectionString("DefaultConnection")));
 
-            /* services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));*/
+/*            services.AddIdentity<IdentityUser, IdentityRole>();
+*//*                     .AddEntityFrameworkStores<DataContext>();
+*/
+            //services.AddIdentity<ApplicationUser, IdentityRole>(options =>
+            //{
+            //    options.User.RequireUniqueEmail = false;
+            //});
+
+            //.AddEntityFrameworkStores<DirectoryBrowserOptions..Database.EFProvider.DataContext>()
+            //.AddDefaultTokenProviders();
+
             services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -65,7 +76,7 @@ namespace Web
             app.UseRouting();
 
             app.UseAuthorization();
-
+            app.UseAuthentication();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

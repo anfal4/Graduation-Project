@@ -12,5 +12,7 @@ namespace Web.ViewModels
         public string Discription { get; set; }
         public int year { get; set; }
         public string link { get; set; }
+
+        public string owner { get; set; }
     }
 }

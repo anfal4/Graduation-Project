@@ -1,0 +1,59 @@
+﻿@model AddResearchViewModel
+@*@model NewAdminViewModel*@
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div style="margin:140px; padding:120px;">
+    <h1>Create</h1>
+
+    <h4>New Admin</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="ResearchName" class="control-label"></label>
+                    <input asp-for="ResearchName" class="form-control" />
+                    <span asp-validation-for="ResearchName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="year" class="control-label"></label>
+                    <input asp-for="year" class="form-control" />
+                    <span asp-validation-for="year" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="owner" class="control-label"></label>
+                    <input asp-for="owner" class="form-control" />
+                    @*<select class="form-control" asp-items='new SelectList(ViewData,"Id","FullName")'></select>*@
+                    @*<select asp-for="_portfolio2" class="form-control" asp-items="ViewBag.admins"></select>*@
+                    <span asp-validation-for="owner" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="link" class="control-label"></label>
+                    <input asp-for="link" class="form-control" />
+                    <span asp-validation-for="link" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+            <label asp-for="owner" class="control-label"></label>
+            <input asp-for="owner" class="form-control" />
+            <span asp-validation-for="owner" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <label asp-for="Discription" class="control-label"></label>
+                    <input asp-for="Discription" class="form-control" style="height:150px" />
+                    <span asp-validation-for="Discription" class="text-danger"></span>
+                </div><br />
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div><br />
+
+    <div>
+        <a asp-action="Index" class="btn btn-outline-dark">Back to List</a>
+    </div>
+</div>

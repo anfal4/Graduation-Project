@@ -844,17 +844,17 @@ section {
   position: relative;
 }
 
-.clients .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #14274E;
-}
+    .clients .swiper-pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background-color: #9BA4B4;
+        opacity: 1;
+        border: 1px solid #14274E;
+    }
 
-.clients .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #14274E;
-}
+    .clients .swiper-pagination .swiper-pagination-bullet-active {
+        background-color: #9BA4B4;
+    }
 
 .clients .swiper-slide img {
   opacity: 0.5;
@@ -936,23 +936,25 @@ section {
 # Values
 --------------------------------------------------------------*/
 .values .card {
-  border: 0;
-  padding: 20px;
-  position: relative;
-  width: 100%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+    border: 0;
+    padding: 5px;
+    position: relative;
+    width: 95%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-left: 75px
 }
 
 .values .card-body {
   z-index: 10;
   background: rgba(255, 255, 255, 0.9);
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   transition: 0.3s;
   transition: ease-in-out 0.4s;
   border-radius: 5px;
+  
 }
 
 .values .card-title {
@@ -973,7 +975,7 @@ section {
   color: #656262;
   /* text-transform: uppercase; */
   font-weight: 600;
-  font-size: 12px;
+  font-size: 10px;
   transition: 0.4s;
 }
 
@@ -1004,15 +1006,15 @@ section {
   ;
 }
 
-.testimonials::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  background: #9BA4B4;
-}
+    .testimonials::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: #fff;
+    }
 
 .testimonials .section-header {
   margin-bottom: 40px;
@@ -1029,10 +1031,10 @@ section {
 }
 
 .testimonials .testimonial-item .testimonial-img {
-  width: 430px;
+  width: auto;
   /* border-radius: 50%; */
-  border: 6px solid rgba(255, 255, 255, 0.15);
-  margin: 0 auto;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  margin:  auto;
 }
 
 .testimonials .testimonial-item h3 {
@@ -1078,16 +1080,16 @@ section {
   position: relative;
 }
 
-.testimonials .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: rgba(255, 255, 255, 0.5);
-  opacity: 1;
-}
+    .testimonials .swiper-pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background-color: #9BA4B4;
+        opacity: 1;
+    }
 
-.testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #14274E;
-}
+    .testimonials .swiper-pagination .swiper-pagination-bullet-active {
+        background-color: #14274E;
+    }
 
 @media (min-width: 992px) {
   .testimonials .testimonial-item p {
@@ -1221,17 +1223,17 @@ section {
   position: relative;
 }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #F1F6F9;
-  opacity: 1;
-  border: 1px solid #14274E;
-}
+    .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
+        width: 12px;
+        height: 12px;
+        background-color: #9BA4B4;
+        opacity: 1;
+        border: 1px solid #14274E;
+    }
 
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #14274E;
-}
+    .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
+        background-color: #9BA4B4;
+    }
 
 .portfolio-details .portfolio-info {
   padding: 30px;
@@ -2341,3 +2343,29 @@ section {
 #join{
   margin-left: 25px;
 }
+
+
+/* styling search bar */
+.search input[type=text] {
+    width: 150px;
+    height: 40px;
+    margin-left:70px
+   
+    
+}
+
+.search {
+    float: right;
+    margin: 7px;
+}
+
+    .search button {
+        background-color: #14274E;
+        color: #f2f2f2;
+        float: right;
+        padding: 5px 10px;
+        margin-right: 16px;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+    }

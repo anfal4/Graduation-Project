@@ -1,4 +1,4 @@
-﻿@inject SignInManager<IdentityUser> signInManager;
+﻿@inject SignInManager<ApplicationUser> signInManager;
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,11 +91,12 @@
                     @if (signInManager.IsSignedIn(User))
                     {
                         <li>
-                            <a class="nav-link scrollto">
+                            <a class="nav-link scrollto" >
                                 <form method="post" asp-action="Logout" asp-controller="Account">
                                     <button type="submit" class="nav-link btn btn-link py-0"
                                             style="width:auto">
-                                        Logout <b>@User.Identity.Name</b> 
+                                        <b>Log out</b> 
+                                        @*<b>@User.Identity.Name</b>*@ 
                                     </button>
 
                                 </form>
@@ -115,11 +116,11 @@
 
                     <!-- search bar right align -->
                     <div class="search">
-                        <form action="#">
+                        <form asp-action="search" asp-controller="Home">
                             <input type="text"
                                    placeholder=" Search ..."
-                                   name="search">
-                            <button asp-action="search" asp-controller="Home">
+                                   name="q">
+                            <button>
                                 <i class="bi bi-search" style="font-size: 18px;">
                                 </i>
                             </button>

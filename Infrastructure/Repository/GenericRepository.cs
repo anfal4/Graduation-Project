@@ -1,4 +1,5 @@
-﻿using Core.Interfaces;
+﻿using Core.Entities;
+using Core.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -43,5 +44,6 @@ namespace Infrastructure.Repository
             table.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
         }
+
     }
 }

@@ -9,13 +9,12 @@ namespace Core.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-        public string Name { get; set; }
-        public string Email { get; set; }
+
         public string organization { get; set; }
+        public string Name { get; set; }
 
-        public string Password { get; set; }
 
-        public string ConfirmPassword { get; set; }
+
 
     }
 }

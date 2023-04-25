@@ -68,7 +68,7 @@ namespace Web.Controllers
                 {
                     ResearchName = model.ResearchName,
                     Discription = model.Discription,
-                    year = model.year,
+                    //year = model.year,
                     link = model.link
                 };
 
@@ -128,7 +128,7 @@ namespace Web.Controllers
                         Id = model.Id,
                         ResearchName = model.ResearchName,
                         Discription = model.Discription,
-                        year = model.year,
+                        //year = model.year,
                         link = model.link
                     };
 

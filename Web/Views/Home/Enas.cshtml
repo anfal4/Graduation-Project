@@ -32,7 +32,7 @@
                                     <div class="col-sm-6 col-md-7">
                                         <div class="about-info">
                                             <br><br>
-                                            <p><span class="title-s">Name: </span> <span>Enas Fadhil Abdullah</span></p>
+                                            <p><span class="title-s">Name: </span> <span>Dr.Enas Fadhil Abdullah</span></p>
                                             <p><span class="title-s">The field:</span> <span>Context recommender system </span></p>
                                             <p><span class="title-s">Email: </span> <span>inasf.alturky@uokufa.edu.iq</span></p>
                                             <p><span class="title-s">Phone: </span> <span>...</span></p>
@@ -111,21 +111,45 @@
             </div>
             @foreach (var research in Model.researches)
             {
-
-                if (research.owner.Contains("Dr.Enas Fadhil Abdullah"))
+                if (research.owner2 == "Dr.Enas Fadhil Abdullah")
                 {
 
-                
-                <div data-aos="fade-up">
-                    <div class="icon-box">
-                        <div class="icon"></div>
-                        <h4 class="title"><a href="https://www.researchgate.net/publication/312191313_Influential_Nodes_Based_Alleviation_of_User_Cold-Start_Problem_in_Recommendation_System" target="_blank">@research.ResearchName</a></h4>
-                        <p class="description">
-                            @research.Discription<br> <br>@research.year<br>
-                        </p>
+
+                    <div data-aos="fade-up">
+
+                        <div class="icon-box">
+                            <div class="icon">
+                                @research.year
+                            </div>
+                            <h4 class="title"><a asp-controller="Home" asp-action="Preview" asp-route-id="@research.Id">@research.ResearchName</a></h4>
+                            <p class="description">
+                                @research.Discription
+                            </p>
+                            <section id="blog" class="blog">
+                                <div data-aos="fade-up" style="margin-left:-30px; margin-top: -23px;  color: #14274E; ">
+
+                                    <div>
+
+                                        <div>
+
+                                            <article class="entry entry-single" style="box-shadow: none;">
+
+                                                <div class="entry-meta">
+                                                    <ul>
+                                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a asp-action="Enas" asp-controller="Home">Dr.Enas Fadhil Abdullah</a></li>
+                                                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2020-01-01">@research.year</time></a></li>
+                                                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">@research.reads Reads</a></li>
+                                                    </ul>
+                                                </div>
+                                            </article>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
                     </div>
                     <br />
-                </div>
+
                 }
             }
         </div>

@@ -35,25 +35,30 @@ namespace Web
                  options.UseSqlServer(
                      configuration.GetConnectionString("DefaultConnection")));
 
-/*            services.AddIdentity<IdentityUser, IdentityRole>();
-*//*                     .AddEntityFrameworkStores<DataContext>();
-*/
-            //services.AddIdentity<ApplicationUser, IdentityRole>(options =>
-            //{
-            //    options.User.RequireUniqueEmail = false;
-            //});
-
-            //.AddEntityFrameworkStores<DirectoryBrowserOptions..Database.EFProvider.DataContext>()
-            //.AddDefaultTokenProviders();
-
             services.AddScoped(typeof(IUnitOfWork<>), typeof(UnitOfWork<>));
 
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<DataContext>();
+            services.AddIdentity<ApplicationUser, IdentityRole>(op => op.SignIn.RequireConfirmedAccount = false)
+                   .AddEntityFrameworkStores<DataContext>()
+                   .AddDefaultTokenProviders();
 
-            
 
 
+
+            //        services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
+            //.AddEntityFrameworkStores<DataContext>();
+            //services.Configure<IdentityOptions>(options => 
+            //{
+            //    options.Password.RequiredLength = 10;
+            //    options.Password.RequiredUniqueChars = 3;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //});
+            //          services.AddDefaultIdentity<IdentityUser>(
+            //  options => options.SignIn.RequireConfirmedAccount = false)
+            //.AddEntityFrameworkStores<DataContext>();
+
+
+            //options => options.SignIn.RequireConfirmedAccount = false
+            //options => options.SignIn.RequireConfirmedAccount = true
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

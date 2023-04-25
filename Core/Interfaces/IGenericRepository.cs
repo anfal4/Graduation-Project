@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -11,7 +12,5 @@ namespace Core.Interfaces
         void Insert(T entity);
         void Update(T entity);
         void Delete(object id);
-
-
     }
 }

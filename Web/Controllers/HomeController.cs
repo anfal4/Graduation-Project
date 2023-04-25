@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Interfaces;
+using Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Web.ViewModels;
@@ -15,18 +16,18 @@ namespace Web.Controllers
     {
         private readonly IUnitOfWork<admin> _Admin;
         private readonly IUnitOfWork<research> _resear;
+        private DataContext _context;
         //private readonly SignInManager<ApplicationUser> _signInManager;
 
         public HomeController(
             IUnitOfWork<admin> Admin,
-            IUnitOfWork<research> resear
-            //,
-            //SignInManager<ApplicationUser> signInManager
+            IUnitOfWork<research> resear,
+            DataContext context
             )
         {
             _Admin = Admin;
             _resear = resear;
-            //_signInManager = signInManager;
+            _context = context;
         }
         public IActionResult Index()
         {
@@ -34,11 +35,11 @@ namespace Web.Controllers
         }
 
 
-        [HttpGet]
-        public IActionResult Login()
-        {
-            return View();
-        }
+        //[HttpGet]
+        //public IActionResult Login()
+        //{
+        //    return View();
+        //}
         //[HttpPost]
         //public async Task<IActionResult> Login(LoginModelView model, string ReturnUrl)
         //{
@@ -67,18 +68,17 @@ namespace Web.Controllers
         //    return View();
         //}
 
-        public IActionResult search()
+        public IActionResult search(string q)
         {
-        //    //البحث عن النتائج بالتايبل الاول واحفظ النتائج بمتغير اسمه تيبل1 ريسيلت
-        //    var table1Result = admin.admins.where(x => x.name.equle(xxxx)).tolist();
 
-        //    // اذا نتائج التيبل الاول فارغه
-        //    if (table1Result == null)
-        //    {
-        //        // ابحث بالتيبل الثاني
-        //        var table2Result = research.Research.where(x => x.name.equle(xxxx)).tolist();
-        //    }
-            return View();
+            var res = _context.researches.Where(
+                x => x.ResearchName.Contains(q) ||
+                x.owner.Contains(q) ||
+                x.owner2.Contains(q) ||
+                x.year.Contains(q)
+            );
+
+            return View(res);
         }
         public IActionResult Index2()
         {

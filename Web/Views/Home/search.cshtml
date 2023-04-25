@@ -1,1 +1,20 @@
-﻿<h1>this is the search page </h1>
+﻿@model IEnumerable<Core.Entities.research>
+
+<div style="margin:44px; padding:33px;">
+
+
+
+    @foreach (var item in Model)
+    {
+        <div>
+
+            <a href="@item.link"><h4 style="color: #1a0dab">@item.ResearchName</h4></a>
+            <a href="@item.link" style="color: #137832">@item.link</a> <br />
+            <p style="color: #8d8d8d">@item.Discription</p>
+            <strong style="color: #767676 ">Authors: @item.owner, @item.owner2, Publication Year: @item.year, Reads: @item.reads</strong>
+            <br />
+        </div>
+        <br /><br />
+    }
+
+</div>

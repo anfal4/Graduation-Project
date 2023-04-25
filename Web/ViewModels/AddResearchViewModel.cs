@@ -10,7 +10,7 @@ namespace Web.ViewModels
         public Guid Id { get; set; }
         public string ResearchName { get; set; }
         public string Discription { get; set; }
-        public int year { get; set; }
+        public string year { get; set; }
         public string link { get; set; }
 
         public string owner { get; set; }

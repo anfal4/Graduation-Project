@@ -1,0 +1,51 @@
+﻿@model CreateRoleViewModel
+
+@{
+    ViewBag.Title = "Create New Role";
+}
+
+<head>
+    <!-- Vendor CSS Files -->
+    <link href="~/profile/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!-- Template Main CSS File -->
+    <link href="~/profile/assets/css/about.css" rel="stylesheet">
+</head>
+
+<section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+                        <div class="row">
+                            <div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <form method="post">
+                                            <h1 style="text-align:center;">Create New Role</h1>
+                                            <img src="~/assets/img/icons8-add-user-group-woman-man-64.png" style="float:right" />
+                                            <br /><hr /> <br />
+                                            <div asp-validation-summary="All" class="text-danger"></div>
+                                            <div class="form-group">
+                                                <label asp-for="RoleName"></label>
+                                                <input asp-for="RoleName" class="form-control" />
+                                                <span asp-validation-for="RoleName" class="text-danger"></span>
+                                            </div><br /><br />
+                                            <button type="submit" class="btn btn-primary">Create Role</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>}<!-- End About Section -->

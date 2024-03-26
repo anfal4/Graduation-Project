@@ -1,16 +1,78 @@
-﻿ <!-- ======= Hero Section ======= -->
+﻿@model HomeViewModel
+
+
+<style>
+    .search-icon {
+        position: absolute;
+        right: 20px;
+        top: 12px;
+        font-size: 20px
+    }
+
+
+    .form-control {
+        height: 50px;
+        border-radius: 25px;
+        border: 0;
+        padding: 0 20px
+    }
+
+        .form-control:focus {
+            border: 0;
+            box-shadow: none !important
+        }
+
+    textarea.form-control {
+        height: 150px;
+        padding: 20px
+    }
+
+    #btt {
+        background: none; /* Removes the default background */
+        color: inherit; /* Inherits the color from its parent */
+        border: none; /* Removes the border */
+        padding: 0; /* Removes padding */
+        margin: 0; /* Removes margin */
+        font: inherit; /* Inherits the font settings from its parent */
+        cursor: pointer; /* Keeps the cursor as pointer to indicate it's clickable */
+        outline: inherit; /* Removes the default focus outline, use with caution */
+    }
+</style>
+
+
+
+
+<!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
     <div class="container" data-aos="fade-in">
-        <h1>Welcome to Social Networks & Recommendatio System Research Group </h1>
+        <h1>Welcome to Social Networks & Recommendation System Research Group </h1>
         <h2>We are an academic researches group in the department of information networks.</h2>
-        <!-- <div class="d-flex align-items-center">
-          <i class="bx bxs-right-arrow-alt get-started-icon"></i>
-          <a href="#services" class="btn-get-started scrollto">Get Started</a>
-        </div> -->
+
+
+        <!-- search -->
+        <div class="container section">
+            <div class="row">
+                <div class="col-lg-8 text-center mx-auto">
+                    <div class="position-relative">
+                        <form asp-action="search" asp-controller="Home">
+
+                            <input type="text" id="search" class="form-control" placeholder="Search..." name="q">
+                            <button type="submit" id="btt">
+                                <i class="bi-search search-icon"></i>
+                            </button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /search -->
+
+
     </div>
 </section><!-- End Hero -->
 
-
+<br />
 <main id="main">
 
     <!-- ======= Why Us Section ======= -->
@@ -36,22 +98,22 @@
                         <div class="row">
                             <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
                                 <div class="icon-box mt-4 mt-xl-0">
-                                    <i class="bx bx-receipt"></i>
-                                    <h4>social networks </h4>
+                                    <i class="bx bx-network-chart"></i>
+                                    <h4>Social networks </h4>
                                     <p>A set of social actors (such as people or organizations), sets of dyadic links, and other social interactions between actors make form a social network.</p>
                                 </div>
                             </div>
                             <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
                                 <div class="icon-box mt-4 mt-xl-0">
-                                    <i class="bx bx-cube-alt"></i>
+                                    <i class="bx bx-add-to-queue"></i>
                                     <h4>SN & Recsys</h4>
                                     <p>The integration of recommender system with social networks produces a new system termed as social recommender system.</p>
                                 </div>
                             </div>
                             <div class="col-xl-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
                                 <div class="icon-box mt-4 mt-xl-0">
-                                    <i class="bx bx-images"></i>
-                                    <h4>recommender system</h4>
+                                    <i class="bx bx-cart"></i>
+                                    <h4>Recommender system</h4>
                                     <p>is a type of information filtering system that aims to anticipate the "rating" or "preferred" a user would assign to a certain item.</p>
                                 </div>
                             </div>
@@ -96,7 +158,6 @@
 
         </div>
     </section><!-- End About Section -->
-
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials" style="background-color:aliceblue">
         <div class="section-title">
@@ -110,23 +171,26 @@
             <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
 
-                    <div class="swiper-slide">
+                                    <!--<div class="swiper-slide">
                         <div class="testimonial-item">
-                            <img src="~/assets/img/testimonials/social_media_3.jpg" class="testimonial-img" alt="">
-                            <!--<h3>Sara Wilsson</h3>-->
-                            <!-- <h4>Designer</h4>-->             <p>
+                            <img src="~/assets/img/testimonials/social_media_3.jpg" class="testimonial-img" alt="">-->
+                                    @*<h3>Sara Wilsson</h3>
+                                     <h4>Designer</h4>*@
+                                    <!--<p>
                                 <br />
                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                 Social Networks
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div>-->
+                    <!-- End testimonial item -->
                     <div class="swiper-slide">
                         <div class="testimonial-item">
                             <img src="~/assets/img/testimonials/shutterstock_2074225187.jpg" class="testimonial-img" alt="">
                             <!--<h3>Sara Wilsson</h3>-->
-                            <!-- <h4>Designer</h4>-->             <p>
+                            <!-- <h4>Designer</h4>-->             
+                            <p>
                                 <br />
                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
                                 Metaverse
@@ -134,26 +198,26 @@
                             </p>
                         </div>
                     </div><!-- End testimonial item -->
-
                     <div class="swiper-slide">
                         <div class="testimonial-item">
                             <img src="~/assets/img/testimonials/iStock-13297517852.jpg" class="testimonial-img" alt="">
-                            <!--<h3>Sara Wilsson</h3>-->
-                            <!-- <h4>Designer</h4>-->             <p>
+                            @*<h3>Sara Wilsson</h3>
+                             <h4>Designer</h4>*@             
+                            <p>
                                 <br />
                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Metaverse                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                Metaverse
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                         </div>
-                    </div><!-- End testimonial item -->
+                    </div>
+                    <!-- End testimonial item -->
 
                     <div class="swiper-slide">
                         <div class="testimonial-item">
                             <img src="~/assets/img/testimonials/money-secret2.jpg" class="testimonial-img" alt="">
-                            <!--<h3>Jena Karlis</h3>
-                        -->
-                            <!-- <h4>Store Owner</h4>
-                        -->
+                            <!--<h3>Jena Karlis</h3> -->
+                            <!-- <h4>Store Owner</h4> -->
                             <p>
                                 <br />
                                 <i class="bx bxs-quote-alt-left quote-icon-left"></i>
@@ -161,34 +225,34 @@
                                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                             </p>
                         </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="testimonial-item">
-                            <img src="~/assets/img/testimonials/digital-storefronts-blog.jpg" class="testimonial-img" alt="">
-                            <!--<h3>Matt Brandon</h3>-->
-                            <!-- <h4>Freelancer</h4>-->
-                            <p>
-                                <br />
-                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                                Recommendatio System
-                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                            </p>
-                        </div>
-                    </div><!-- End testimonial item -->
+                    </div>
+                    <!-- End testimonial item -->
                     <!--<div class="swiper-slide">
-                <div class="testimonial-item">
-                    <img src="~/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">-->
-                    <!--<h3>John Larson</h3>
-                -->
+        <div class="testimonial-item">
+            <img src="~/assets/img/testimonials/digital-storefronts-blog.jpg" class="testimonial-img" alt="">-->
+                    <!--<h3>Matt Brandon</h3>-->
+                    <!-- <h4>Freelancer</h4>-->
+                    <!--<p>
+                <br />
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Recommendatio System
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+        </div>
+    </div>-->
+                    <!-- End testimonial item -->
+                    <!--<div class="swiper-slide">
+    <div class="testimonial-item">
+        <img src="~/assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">-->
+                    <!--<h3>John Larson</h3>-->
                     <!-- <h4>Entrepreneur</h4>-->
                     <!--<p>
-                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                            Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                        </p>
-                    </div>
-                </div>-->
+                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+        </div>
+    </div>-->
                     <!-- End testimonial item -->
 
                 </div>
@@ -197,19 +261,18 @@
 
         </div>
     </section><!-- End Testimonials Section -->
-   
     <!-- ======= Values Section ======= -->
     <!-- Research -->
     <section id="values" class="values" style="background-color: #9BA4B4;">
         <div class="container">
             <div class="section-title" style="margin-bottom:2px">
-                <h2 data-aos="fade-up" style="text-align:">Latest research</h2>
+                <h2 data-aos="fade-up" style="text-align:center">Latest research</h2>
             </div>
 
             <div class="row" style="margin-top: 3px;">
                 <div class="col-md-6 d-flex align-items-stretch" data-aos="fade-up">
                     <div class="card" style="background-color: #9BA4B4">
-                        <img src="~/assets/img/fore/Picture3.jpg"  style="margin-top:2px;"/><br />
+                        <img src="~/assets/img/fore/Picture3.jpg" style="margin-top:2px;" /><br />
                         <div class="card-body">
                             <h5 class="card-title"><a href="https://kijoms.uokerbala.edu.iq/cgi/viewcontent.cgi?article=2891&context=home">Influence Maximization based on a Non-dominated Sorting Genetic Algorithm</a></h5><br />
                             <p class="card-text">Experimental results for the benchmark Digg network. The NSGAeIIeIM in this experiment 100 generation was seeded with the results of the NSGA-II and three heuristic algorithm.</p>
@@ -219,10 +282,10 @@
                 </div>
                 <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="100" style="margin-top: 3px;">
                     <div class="card" style="background-color: #9BA4B4; ">
-                        <img src="~/assets/img/fore/اول بحث لدكتورة هدى (2).png" /><br />
+                        <img src="~/assets/img/fore/first.jpg" /><br />
                         <div class="card-body">
                             <h5 class="card-title"><a href="https://www.researchgate.net/publication/312191313_Influential_Nodes_Based_Alleviation_of_User_Cold-Start_Problem_in_Recommendation_System">Influential Nodes Based Alleviation of User Cold-Start Problem in Recommendation System</a></h5><br />
-                             <p class="card-text">The Cold-start problem considered as one of the most common limitations of recommender systems, which indicates to situation when a new user or items lastly combined to the system</p>
+                            <p class="card-text">The Cold-start problem considered as one of the most common limitations of recommender systems, which indicates to situation when a new user or items lastly combined to the system</p>
                             <div class="read-more"><a href="https://www.researchgate.net/publication/312191313_Influential_Nodes_Based_Alleviation_of_User_Cold-Start_Problem_in_Recommendation_System"><i class="bi bi-arrow-right"></i> Read More</a></div>
                         </div>
                     </div>
@@ -243,7 +306,7 @@
                         <img src="~/assets/img/fore/values-4.jpg" /><br />
                         <div class="card-body">
                             <h5 class="card-title"><a href="https://www.researchgate.net/publication/349742616_Community_structure-aware_fairness_and_goodness_algorithm_for_link_weight_prediction">Community structure-aware fairness and goodness algorithm for link weight prediction</a></h5><br />
-                                                                                                                                                                                                                                                                                                  <p class="card-text">In this research, the problem of predicting the edge weight in the Bitcoin network has been resolved by utilizing the structure of the community based Fairness and Goodness.</p>
+                            <p class="card-text">In this research, the problem of predicting the edge weight in the Bitcoin network has been resolved by utilizing the structure of the community based Fairness and Goodness.</p>
                             <div class="read-more"><a href="https://www.researchgate.net/publication/349742616_Community_structure-aware_fairness_and_goodness_algorithm_for_link_weight_prediction"><i class="bi bi-arrow-right"></i> Read More</a></div>
                         </div>
                     </div>
@@ -253,19 +316,19 @@
         </div>
     </section><!-- End Values Section -->
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients" style="background-color: #fff;">
+    <section id="clients" class="clients" >
         <div class="container" data-aos="fade-up">
         </div>
     </section><!-- End Clients Section -->
     <!-- ======= Team Section ======= -->
-    <section id="team" class="team section-bg" style="background-color: #9BA4B4;">
+    <!--<section id="team" class="team section-bg" style="background-color: #9BA4B4;">
         <div class="container">
 
             <div class="section-title">
                 <h2 data-aos="fade-up">Research Group</h2>
-                <p data-aos="fade-up">
-                    @*text*@
-                </p>
+                <p data-aos="fade-up">-->
+    @*text*@
+    <!--</p>
             </div>
 
             <div class="row">
@@ -341,48 +404,121 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="text-center">
-                    <a asp-action="Index2" asp-controller="Home" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                    <br />
+                    <a asp-action="Index2" asp-controller="Home" class="more-btn" style="color: #14274E;"><b>Learn More</b> <i class="bx bx-chevron-right"></i></a>
                 </div>
 
             </div>
 
         </div>
-    </section><!-- End Team Section -->
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-        <div class="container">
+    </section>-->
+    
+        <section id="testimonials" class="testimonials"style="background-color: #FFF" >
+            <div class="container position-relative" data-aos="fade-up" style="background-color: #FFF ">
+                
+                    <section id="team" class="team section-bg" style="background-color: #FFF ">
+                        <div class="container">
 
-            <div class="section-title">
-                <h2 data-aos="fade-up">Contact</h2>
+                            <div class="section-title">
+                                <h2 data-aos="fade-up" style="color: #14274e">
+                                    Research Group
+                                </h2>
+                            </div>
 
-            </div>
+                            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
 
-            <div class="row justify-content-center">
+                                <div class="swiper-wrapper">
+                                    @foreach (var admin in Model.admin)
+                                    {
+                                        <div class="swiper-slide">
 
-                <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up">
-                    <div class="info-box">
-                        <i class="bx bx-map"></i>
-                        <h3>Our Address</h3>
-                        <p>
-                            Iraq, Hilla
-                            University of Babylon
-                        </p>
-                    </div>
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up">
+                                                    <div class="member"></div>
+                                                </div>
+
+                                                <div style="justify-content: center;
+                                                            display: flex;
+                                                            align-items: center;"
+                                                     data-aos="fade-up"
+                                                     data-aos-delay="100">
+
+                                                    <div class="member">
+
+                                                        <div class="member-img">
+
+                                                            <img src="~/imgeteam/@admin.Avatar"
+                                                                 class="img-fluid"
+                                                                 alt=""
+                                                                 width="300px"
+                                                                 height="300px" />
+                                                            @*<div class="social">
+                                                                <a href=""><i class="bi bi-twitter"></i></a>
+                                                                <a href=""><i class="bi bi-facebook"></i></a>
+                                                                <a href=""><i class="bi bi-instagram"></i></a>
+                                                                <a href=""><i class="bi bi-linkedin"></i></a>
+                                                            </div>*@
+                                                        </div>
+
+                                                        <div class="member-info">
+                                                            <h4>@admin.FullName</h4>
+                                                            <span>@admin.field</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+                                        </div>}
+                                    <!-- End testimonial item -->
+                                </div>
+                                <div class="swiper-pagination"></div>
+                                <div class="text-center">
+                                    <br />
+                                    <a asp-action="Index2" asp-controller="Home" class="more-btn" style="color: #14274E;"><b>Learn More</b> <i class="bx bx-chevron-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+        </section>
+        <!-- End Team Section -->
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container">
+
+                <div class="section-title">
+                    <h2 data-aos="fade-up">Contact</h2>
+
                 </div>
 
-                <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="100">
-                    <div class="info-box">
-                        <i class="bx bx-envelope"></i>
-                        <h3>Email Us</h3>
-                        <p>net@itnet.uobabylon.edu.iq<br><br></p>
+                <div class="row justify-content-center">
+
+                    <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up">
+                        <div class="info-box">
+                            <i class="bx bx-map"></i>
+                            <h3>Our Address</h3>
+                            <p>
+                                Iraq, Hilla
+                                University of Babylon
+                            </p>
+                        </div>
                     </div>
+
+                    <div class="col-xl-3 col-lg-4 mt-4" data-aos="fade-up" data-aos-delay="100">
+                        <div class="info-box">
+                            <i class="bx bx-envelope"></i>
+                            <h3>Email Us</h3>
+                            <p><a href="mailto:net@itnet.uobabylon.edu.iq">net@itnet.uobabylon.edu.iq</a><br><br></p>
+                        </div>
+                    </div>
+
+
                 </div>
 
-
             </div>
+        </section><!-- End Contact Section -->
 
-        </div>
-    </section><!-- End Contact Section -->
-
-</main><!-- End #main -->
+    </main><!-- End #main -->

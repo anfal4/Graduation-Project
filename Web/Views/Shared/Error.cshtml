@@ -1,0 +1,54 @@
+﻿<head>
+    <!-- Vendor CSS Files -->
+    <link href="~/profile/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/profile/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="~/profile/assets/css/about.css" rel="stylesheet">
+
+
+
+</head>
+
+<section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="box-shadow-full">
+                    <div class="row">
+
+                        <div class="row">
+                            <div class="row">
+                                <div class="col-md-6">
+
+                                    <section>
+
+                                        @if (ViewBag.ErrorTitle == null)
+                                        {
+                                            <h3>
+                                                An occured while processing your request.
+                                                The support team is notified and we are working on the fix
+                                            </h3>
+                                            <h5>Please contact us on anfal.almadhati@uobabylon.edu.iq</h5>
+                                        }
+                                        else
+                                        {
+                                            <h1 class="text-success">@ViewBag.ErrorTitle</h1>
+                                            <h6 class="text-success">@ViewBag.ErrorMessage</h6>
+                                        }
+
+                                    </section>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>}<!-- End About Section -->

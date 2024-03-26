@@ -110,6 +110,52 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Core.Entities.Comments", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Author")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DatePosted")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ResearchId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResearchId");
+
+                    b.ToTable("comments");
+                });
+
+            modelBuilder.Entity("Core.Entities.VisitorCount", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Count")
+                        .HasColumnType("int");
+
+                    b.Property<string>("IPAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("LastVisit")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("visitorCounts");
+                });
+
             modelBuilder.Entity("Core.Entities.admin", b =>
                 {
                     b.Property<Guid>("Id")
@@ -144,7 +190,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("ba71a310-3cbb-4728-8933-cbb668569462"),
+                            Id = new Guid("006f6229-260b-4470-aa50-5ea02678b469"),
                             Avatar = "huda4.jpg",
                             Email = "huda.almamory@uobabylon.edu.iq",
                             FullName = "Dr.Huda Naji Nawaf Al-Mamory",
@@ -159,6 +205,12 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier")
                         .HasDefaultValueSql("NEWID()");
+
+                    b.Property<string>("Author3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Comments")
+                        .HasColumnType("int");
 
                     b.Property<string>("Discription")
                         .HasColumnType("nvarchar(max)");
@@ -317,6 +369,17 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Core.Entities.Comments", b =>
+                {
+                    b.HasOne("Core.Entities.research", "Research")
+                        .WithMany("comments")
+                        .HasForeignKey("ResearchId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Research");
+                });
+
             modelBuilder.Entity("Core.Entities.admin", b =>
                 {
                     b.HasOne("Core.Entities.Address", "Address")
@@ -375,6 +438,11 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Core.Entities.research", b =>
+                {
+                    b.Navigation("comments");
                 });
 #pragma warning restore 612, 618
         }

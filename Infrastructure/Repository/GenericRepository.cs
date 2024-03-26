@@ -4,7 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks; // للتأكيد على استخدام العمليات غير المتزامنة
+
 
 namespace Infrastructure.Repository
 {
@@ -43,6 +46,18 @@ namespace Infrastructure.Repository
         {
             table.Attach(entity);
             _context.Entry(entity).State = EntityState.Modified;
+        }
+
+        // إضافة دالة FirstOrDefaultAsync
+        public async Task<T> FirstOrDefaultAsync(Expression<Func<T, bool>> predicate)
+        {
+            return await table.Where(predicate).FirstOrDefaultAsync();
+        }
+
+
+        public IQueryable<T> Query()
+        {
+            return table.AsQueryable();
         }
 
     }

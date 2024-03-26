@@ -539,7 +539,7 @@ section {
 }
 
 .section-bg {
-  background-color: #fff9f7;
+    background-color: #E3E1D9;
 }
 
 .section-title {
@@ -847,13 +847,13 @@ section {
     .clients .swiper-pagination .swiper-pagination-bullet {
         width: 12px;
         height: 12px;
-        background-color: #9BA4B4;
+        background-color: #836FFF;
         opacity: 1;
         border: 1px solid #14274E;
     }
 
     .clients .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: #9BA4B4;
+        background-color: #836FFF;
     }
 
 .clients .swiper-slide img {
@@ -1226,13 +1226,13 @@ section {
     .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
         width: 12px;
         height: 12px;
-        background-color: #9BA4B4;
+        background-color: #836FFF;
         opacity: 1;
         border: 1px solid #14274E;
     }
 
     .portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-        background-color: #9BA4B4;
+        background-color: #836FFF;
     }
 
 .portfolio-details .portfolio-info {
@@ -2347,25 +2347,27 @@ section {
 
 /* styling search bar */
 .search input[type=text] {
-    width: 150px;
-    height: 40px;
-    margin-left:70px
+    width: 130px;
+    height: 20px;
+    margin-left:50px
    
     
 }
 
 .search {
     float: right;
-    margin: 7px;
+    margin: 3px;
 }
 
-    .search button {
-        background-color: #14274E;
-        color: #f2f2f2;
-        float: right;
-        padding: 5px 10px;
-        margin-right: 16px;
-        font-size: 20px;
-        border: none;
-        cursor: pointer;
-    }
+.search button {
+    background-color: #14274E;
+    color: #f2f2f2;
+    float: right;
+    padding: 5px 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+

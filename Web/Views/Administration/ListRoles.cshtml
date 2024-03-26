@@ -1,0 +1,120 @@
+﻿@model IEnumerable<IdentityRole>
+
+ @{
+
+ ViewBag.Title = "All Roles";
+
+ }
+
+ <head>
+     <!-- Vendor CSS Files -->
+     <link href="~/profile/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+     <link href="~/profile/assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+     <link href="~/profile/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+     <!-- Template Main CSS File -->
+     <link href="~/profile/assets/css/about.css" rel="stylesheet">
+
+
+
+ </head>
+
+ @if(Model.Any())
+ {
+
+ <section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-12">
+                 <div class="box-shadow-full">
+                     <div class="row">
+
+                         <div class="row">
+                             <div class="row">
+                                 <div class="col-md-6">
+
+                                     <section>
+                                         <a class="btn btn-primary mb-3" style="width:auto" asp-action="CreateRole"
+                                            asp-controller="Administration">Add new role</a>
+                                        
+                                         @foreach(var role in Model)
+                                         {
+                                         <div class="card mb-3">
+                                             <div class="card-header">
+                                                 Role Id : @role.Id
+                                             </div>
+                                             <div class="card-body">
+                                                 <h5 class="card-title">@role.Name</h5>
+                                             </div>
+                                             <div class="card-footer">
+                                                 <form asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                                                     <a class="btn btn-primary"
+                                                        asp-action="EditRole" asp-controller="Administration"
+                                                        asp-route-id="@role.Id">Edit</a>
+                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                 </form>
+                                             </div>
+                                         </div>
+                                         }
+                                     </section>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+
+                 </div>
+
+             </div>
+         </div>
+     </div>
+
+ </section><!-- End About Section -->
+ 
+ }
+ else
+ {
+ <section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
+     <div class="container">
+         <div class="row">
+             <div class="col-sm-12">
+                 <div class="box-shadow-full">
+                     <div class="row">
+
+                         <div class="row">
+                             <div class="row">
+                                 <div class="col-md-6">
+                                     <h1>All Roles</h1>
+
+                                     <section>
+
+                                         <div class="card">
+                                             <div class="card-header">
+                                                 No roles created yet
+                                             </div>
+                                             <div class="card-body">
+                                                 <h5 class="card-title">
+                                                     Use the button below to create a role
+                                                 </h5>
+                                                 <a class="btn btn-primary" style="width:auto"
+                                                    asp-controller="administration" asp-action="CreateRole">
+                                                     Create Role
+                                                 </a>
+                                             </div>
+                                         </div>
+
+                                     </section>
+                                 </div>
+                             </div>
+
+                         </div>
+                     </div>
+
+                 </div>
+
+             </div>
+         </div>
+     </div>
+
+ </section>}<!-- End About Section -->
+ }

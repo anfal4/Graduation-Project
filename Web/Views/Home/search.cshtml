@@ -6,14 +6,16 @@
 
     @foreach (var item in Model)
     {
-        <div>
+    <div>
 
-            <a href="@item.link"><h4 style="color: #1a0dab">@item.ResearchName</h4></a>
-            <a href="@item.link" style="color: #137832">@item.link</a> <br />
-            <p style="color: #8d8d8d">@item.Discription</p>
-            <strong style="color: #767676 ">Authors: @item.owner, @item.owner2, Publication Year: @item.year, Reads: @item.reads</strong>
-            <br />
-        </div>
+        <a asp-controller="Home" asp-action="Preview" asp-route-id="@item.Id"><h4 style="color: #1a0dab">@item.ResearchName</h4></a>
+        <a asp-controller="Home" asp-action="Preview" asp-route-id="@item.Id" style="color: #137832">@item.link</a>
+
+        @*<a href="@item.link" style="color: #137832">@item.link</a>*@
+        <p style="color: #8d8d8d">@item.Discription</p>
+        <strong style="color: #767676 ">Authors: @item.owner, @item.owner2,@item.Author3 Publication Year: @item.year, Reads: @item.reads</strong>
+        <br />
+    </div>
         <br /><br />
     }
 

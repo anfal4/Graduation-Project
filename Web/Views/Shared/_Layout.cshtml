@@ -14,7 +14,9 @@
     <!-- Favicons -->
     <link href="~/assets/img/logo/icons8-social-networks-96.png" rel="icon">
     <link href="~/assets/img/logo/icons8-social-networks-96.png" rel="apple-touch-icon">
-
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
@@ -48,15 +50,15 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="Home" id="home">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">About</a></li>
+                    <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="Home">Home</a></li>
+                    @*<li><a class="nav-link scrollto" href="#about">About</a></li>*@
                     <li><a asp-action="Publications" asp-controller="Home">Publications</a></li>
                     <li class="dropdown">
-                        <a href="#values"><span>Research</span> <i class="bi bi-chevron-down"></i></a>
+                        <a><span>Research</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
                             <li><a asp-action="profile" asp-controller="Home">Social Networks & recommender system</a>
                             <li class="dropdown">
-                                <a href="#"><span>Information diffusion in social networks</span> <i class="bi bi-chevron-down"></i></a>
+                                <a><span>Information diffusion in social networks</span> <i class="bi bi-chevron-down"></i></a>
                                 <ul>
                                     <li><a asp-action="Mustafa" asp-controller="Home">Dr.Mustafa Kamil Mahdi</a></li>
                                     <li><a asp-action="Elaf" asp-controller="Home">Dr.Elaf Adel Abbas</a></li>
@@ -67,12 +69,13 @@
                             <li><a asp-action="Mohsin" asp-controller="Home">Social recommendation system</a></li>
                             <li><a asp-action="Enas" asp-controller="Home">Context recommender system</a></li>
                             <li><a asp-action="Zainab" asp-controller="Home">recommendation system</a></li>
-                            <li><a asp-action="Harith" asp-controller="Home">Reputation stsrem</a></li>
+                            <li><a asp-action="Harith" asp-controller="Home">Reputation System</a></li>
                             <li><a asp-action="Hiba" asp-controller="Home">Bitcoin networks</a></li>
 
                         </ul>
+                    </li>
                     <li class="dropdown">
-                        <a href="#team"><span>Research Group</span> <i class="bi bi-chevron-down"></i></a>
+                        <a><span>Research Group</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
 
                             <li><a asp-action="profile" asp-controller="Home">Dr.Huda Naji Nawaf Al-Mamory</a></li>
@@ -87,69 +90,88 @@
 
                         </ul>
                     </li>
-                    @*<li><a class="nav-link scrollto" href="#contact">Contact</a></li>*@
+
                     @if (signInManager.IsSignedIn(User))
                     {
+
+
+                        if (User.Identity.Name.Contains("anfal.almadhati@student.uobabylon.edu.iq") ||
+                            User.Identity.Name.Contains("huda.almamory@uobabylon.edu.iq") ||
+                            User.Identity.Name.Contains("anfal.almadhati@uobabylon.edu.iq") || @User.IsInRole("Admins"))
+                        {
+
+
+                            <li class="dropdown">
+                                <a><span>Control Panel</span> <i class="bi bi-chevron-down"></i></a>
+                                <ul>
+
+                                    <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="AddAdmin">Authors</a></li>
+                                    <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="AddResearch">Researches</a></li>
+                                    <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="AddUser">Users</a></li>
+                                    <li><a class="nav-link scrollto active" asp-action="ListRoles" asp-controller="Administration">Roles</a></li>
+                                    <li><a class="nav-link scrollto active" asp-action="VisitCounter" asp-controller="Home">Visits</a></li>
+
+
+                                </ul>
+                            </li>
+
+                        }
+                        else if (User.IsInRole("Researcher"))
+                        {
+                            <li class="dropdown">
+                                <a><span>Control Panel</span> <i class="bi bi-chevron-down"></i></a>
+                                <ul>
+
+                                    <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="AddAdmin">Authors</a></li>
+                                    <li><a class="nav-link scrollto active" asp-action="Index" asp-controller="AddResearch">Researches</a></li>
+
+                                </ul>
+                            </li>
+                        }
+
+
+
                         <li>
-                            <a class="nav-link scrollto" >
+                            <a class="nav-link scrollto">
+                                @*<b>@User.Identity.Name</b>*@
                                 <form method="post" asp-action="Logout" asp-controller="Account">
-                                    <button type="submit" class="nav-link btn btn-link py-0"
-                                            style="width:auto">
-                                        <b>Log out</b> 
-                                        @*<b>@User.Identity.Name</b>*@ 
+                                    <button type="submit" class="nav-link btn btn-link py-0" style="width:auto">
+                                        <b>Log out</b>
                                     </button>
 
                                 </form>
                             </a>
                         </li>
 
-
-
-                        @*<li><a class="nav-link scrollto" asp-action="Register" asp-controller="Account">Register</a></li>*@
                     }
                     else
                     {
-                        <li><a class="nav-link scrollto" id="join" asp-action="Register" asp-controller="Account">Register</a></li>
-                        <li><a class="nav-link scrollto" id="join" asp-action="Login" asp-controller="Account">Login</a></li>
+                        <li><a class="nav-link scrollto" asp-action="Register" asp-controller="Account"><b>Register</b></a></li>
+                        <li><a class="nav-link scrollto" asp-action="Login" asp-controller="Account" asp-route-returnUrl="@Context.Request.Path"><b>Login</b></a></li>
 
                     }
 
-                    <!-- search bar right align -->
-                    <div class="search">
-                        <form asp-action="search" asp-controller="Home">
-                            <input type="text"
-                                   placeholder=" Search ..."
-                                   name="q">
-                            <button>
-                                <i class="bi bi-search" style="font-size: 18px;">
-                                </i>
-                            </button>
-                        </form>
-                    </div>
-</div>
+                    @*<li class="nav-link scrollto active">
+            search bar
+            <div class="search">
+                <form asp-action="search" asp-controller="Home">
+                    <input type="text" placeholder=" Search ..." name="q">
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+            </div>
+        </li>*@
 
 
-        </ul>
-        @*<div style="margin-right: 8px; margin-left: 70px;  margin-top:29px">
-                            <input type="text" placeholder="Search..." style="display:inline" class="input-Search">
-
-                                <a asp-action="search" asp-controller="Home" style="margin-left: 160px; background-color: #14274E;
-        "
-
-                                   ><i class="bi bi-search"></i></a>
-
-
-                        </div>*@
-
-        <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
         </div>
     </header><!-- End Header -->
-   
+
     <div>
         @RenderBody()
     </div>
-   
+
     <!-- ======= Footer ======= -->
     <footer id="footer">
 
@@ -163,6 +185,7 @@
                             Iraq, Hilla<br>
                             University of Babylon<br><br>
                             <strong>Email:</strong> net@itnet.uobabylon.edu.iq<br>
+
                         </p>
                     </div>
 
@@ -174,7 +197,6 @@
                             <li><i class="bx bx-chevron-right"></i> <a asp-action="Index2" asp-controller="Home">Research Group</a></li>
                         </ul>
                     </div>
-
                     <div class="col-lg-3 col-md-6 footer-links">
                         <h4>Our Subject</h4>
                         <ul>
@@ -185,16 +207,9 @@
                             <!-- <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li> -->
                         </ul>
                     </div>
-
                     <div class="col-lg-4 col-md-6 footer-newsletter">
                         <h4>Social Networks & Recommendation System </h4>
-                        @*<p>However, if there are many people who do not know what I have read, I will read our great mistake</p>*@
-                        <!-- <form action="" method="post"> -->
-                        <!-- <input type="submit" name="email">
-                        <input type="submit" value="Join us" > -->
-                        <!-- </form> -->
                     </div>
-
                 </div>
             </div>
         </div>
@@ -210,16 +225,16 @@
                     <!-- You can delete the links only if you purchased the pro version. -->
                     <!-- Licensing information: https://bootstrapmade.com/license/ -->
                     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/Social Networks & Recommendation System -free-multipurpose-bootstrap-template/ -->
-                    Designed by <a href="https://github.com/anfal4">Anfal Naji</a>
+                    Designed and programmed by <a href="https://www.linkedin.com/in/anfal-al-atbi-a917b0198/">Anfal Naji Mansi</a>
                 </div>
             </div>
-            <div class="social-links text-center text-lg-right pt-3 pt-lg-0">
+            <!--<div class="social-links text-center text-lg-right pt-3 pt-lg-0">
                 <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
                 <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            </div>
+                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>-->
+                @*<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>*@
+                <!--<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>-->
         </div>
     </footer><!-- End Footer -->
 

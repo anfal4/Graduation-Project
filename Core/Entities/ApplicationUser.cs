@@ -13,8 +13,5 @@ namespace Core.Entities
         public string organization { get; set; }
         public string Name { get; set; }
 
-
-
-
     }
 }

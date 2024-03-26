@@ -1,5 +1,6 @@
 ﻿using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,7 @@ using Web.ViewModels;
 
 namespace Web.Controllers
 {
+
     public class AddResearchController : Controller
     {
         private readonly IUnitOfWork<research> _portfolio;
@@ -22,12 +24,15 @@ namespace Web.Controllers
             _portfolio = portfolio;
             _hosting = hosting;
         }
+        [Authorize(Roles = "Researcher, Admins")]
 
         // GET: PortfolioItems
         public IActionResult Index()
         {
             return View(_portfolio.Entity.GetAll());
         }
+
+        [Authorize(Roles = "Researcher, Admins")]
 
         // GET: PortfolioItems/Details/5
         public IActionResult Details(Guid? id)
@@ -46,6 +51,7 @@ namespace Web.Controllers
             return View(portfolioItem);
         }
 
+        [Authorize(Roles = "Researcher, Admins")]
 
         // GET: PortfolioItems/Create
         public IActionResult Create()
@@ -53,6 +59,8 @@ namespace Web.Controllers
             return View();
         }
 
+
+        [Authorize(Roles = "Researcher, Admins")]
         // POST: PortfolioItems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -68,8 +76,11 @@ namespace Web.Controllers
                 {
                     ResearchName = model.ResearchName,
                     Discription = model.Discription,
-                    //year = model.year,
-                    link = model.link
+                    year = model.year,
+                    link = model.link,
+                    owner = model.owner,
+                    owner2 = model.owner2,
+                    Author3= model.Author3
                 };
 
                 _portfolio.Entity.Insert(research);
@@ -79,6 +90,9 @@ namespace Web.Controllers
 
             return View(model);
         }
+
+
+        [Authorize(Roles = "Researcher, Admins")]
 
         // GET: PortfolioItems/Edit/5
         public IActionResult Edit(Guid? id)
@@ -109,6 +123,7 @@ namespace Web.Controllers
         // POST: PortfolioItems/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Researcher, Admins")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Edit(Guid id, AddResearchViewModel model)
@@ -128,8 +143,11 @@ namespace Web.Controllers
                         Id = model.Id,
                         ResearchName = model.ResearchName,
                         Discription = model.Discription,
-                        //year = model.year,
-                        link = model.link
+                        year = model.year,
+                        link = model.link,
+                        owner = model.owner,
+                        owner2 = model.owner2,
+                        Author3 = model.Author3
                     };
 
                     _portfolio.Entity.Update(portfolioItem);
@@ -150,6 +168,7 @@ namespace Web.Controllers
             }
             return View(model);
         }
+        [Authorize(Roles = "Researcher, Admins")]
 
         // GET: PortfolioItems/Delete/5
         public IActionResult Delete(Guid? id)
@@ -167,6 +186,7 @@ namespace Web.Controllers
 
             return View(portfolioItem);
         }
+        [Authorize(Roles = "Researcher, Admins")]
 
         // POST: PortfolioItems/Delete/5
         [HttpPost, ActionName("Delete")]

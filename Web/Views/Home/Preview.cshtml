@@ -1,4 +1,6 @@
-﻿@model HomeViewModel
+﻿@*@model HomeViewModel*@
+
+@model AddResearchViewModel
 @*@foreach (var research in Model.researches)
     {*@
 @*        <h4 class="title"><a asp-controller="Home" asp-action="Preview" asp-route-id="@Model.researches">@Model.researches.</a></h4>
@@ -27,8 +29,8 @@
 </head>
 
 <!-- ======= About Section ======= -->
-@foreach (var research in Model.researches)
-{
+@*@foreach (var research in Model.researches)
+{*@
     <section id="about" class="about-mf sect-pt4 route" style="background-color: #9BA4B4;">
         <div class="container">
             <div class="row">
@@ -43,17 +45,17 @@
 
                                 <div class="portfolio-info">
                                     <ul>
-                                        <li><strong>Research Name</strong>: @research.ResearchName </li>
+                                        <li><strong>Research Name</strong>: @Model.ResearchName </li>
                                         <br />
-                                        <li><strong>Discription</strong>: @research.Discription  </li>
+                                        <li><strong>Discription</strong>: @Model.Discription  </li>
                                         <br>
-                                        <li><strong>Research date</strong>: @research.year </li>
+                                        <li><strong>Research date</strong>: @Model.year </li>
                                         <br>
-                                        <li><strong>Research URL</strong>: <a href="@research.link"> Please Click Here</a></li>
+                                        <li><strong>Research URL</strong>: <a href="@Model.link"> Please Click Here</a></li>
                                         <br>
-                                        <li><strong>Research Reads </strong>: @research.reads </li>
+                                        <li><strong>Reads</strong>: @Model.reads </li>
                                         <br>
-                                        <li><strong>Research owner</strong>: @research.owner   </li>
+                                        <li><strong>Authors</strong>: @Model.owner2 ,@Model.owner,@Model.Author3  </li>
                                         <br>
 
 
@@ -68,9 +70,11 @@
             </div>
         </div>
 
-    </section>}<!-- End About Section -->
-    <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients" style="background-color: #fff;">
-        <div class="container" data-aos="fade-up">
-        </div>
-    </section><!-- End Clients Section -->
+    </section>
+@*}*@
+    <!-- End About Section -->
+<!-- ======= Clients Section ======= -->
+<section id="clients" class="clients" style="background-color: #fff;">
+    <div class="container" data-aos="fade-up">
+    </div>
+</section><!-- End Clients Section -->

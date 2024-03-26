@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Infrastructure.Migrations;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -41,6 +42,11 @@ namespace Infrastructure
 
         public DbSet<admin> admins { get; set; }
         public DbSet<research> researches { get; set; }
+
+        public DbSet<Core.Entities.Comments> comments { get; set; }
+
+        public DbSet<VisitorCount>  visitorCounts { get; set; }
+
 
 
 

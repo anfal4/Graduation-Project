@@ -33,7 +33,12 @@
                                         <div class="about-info">
                                             <p><span class="title-s">Name: </span> <span>Dr.Elaf Adel Abbas</span></p>
                                             <p><span class="title-s">The field:</span> <span>Information diffusion in social networks</span></p>
-                                            <p><span class="title-s">Email: </span> <span>alhashemyelaf@student.uobabylon.edu.iq</span></p>
+                                            <p>
+                                                <span class="title-s">Email: </span>
+                                                <span>
+                                                    <a href="mailto:alhashemyelaf@student.uobabylon.edu.iq">alhashemyelaf@student.uobabylon.edu.iq</a>
+                                                </span>
+                                            </p>
                                             <p><span class="title-s">Phone: </span> <span> ....</span></p>
                                         </div>
                                     </div>
@@ -123,40 +128,89 @@
                 {
 
 
-                    <div data-aos="fade-up">
+                    @*<div data-aos="fade-up">
+                    <div class="icon-box">
+                        <div class="icon">
+                            @research.year
+                        </div>
+                        <h4 class="title"><a asp-controller="Home" asp-action="Preview" asp-route-id="@research.Id">@research.ResearchName</a></h4>
+                        <p class="description">
+                            @research.Discription
+                        </p>
+                        <section id="blog" class="blog">
+                            <div data-aos="fade-up" style="margin-left:-30px; margin-top: -23px;  color: #14274E; ">
 
-                        <div class="icon-box">
-                            <div class="icon">
-                                @research.year
-                            </div>
-                            <h4 class="title"><a asp-controller="Home" asp-action="Preview" asp-route-id="@research.Id">@research.ResearchName</a></h4>
-                            <p class="description">
-                                @research.Discription
-                            </p>
-                            <section id="blog" class="blog">
-                                <div data-aos="fade-up" style="margin-left:-30px; margin-top: -23px;  color: #14274E; ">
+                                <div>
 
                                     <div>
 
-                                        <div>
+                                        <article class="entry entry-single" style="box-shadow: none;">
 
-                                            <article class="entry entry-single" style="box-shadow: none;">
-
-                                                <div class="entry-meta">
-                                                    <ul>
-                                                        <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a asp-action="Elaf" asp-controller="Home">Dr.Elaf Adel Abbas</a></li>
-                                                        <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2020-01-01">@research.year</time></a></li>
-                                                        <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">@research.reads Reads</a></li>
-                                                    </ul>
-                                                </div>
-                                            </article>
-                                        </div>
+                                            <div class="entry-meta">
+                                                <ul>
+                                                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a asp-action="Elaf" asp-controller="Home">Dr.Elaf Adel Abbas</a></li>
+                                                    <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href=""><time datetime="2020-01-01">@research.year</time></a></li>
+                                                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="">@research.reads Reads</a></li>
+                                                </ul>
+                                            </div>
+                                        </article>
                                     </div>
                                 </div>
-                            </section>
-                        </div>
+                            </div>
+                        </section>
                     </div>
-                    <br />
+                </div>
+                <br />*@
+
+
+                    <section id="blog" class="blog">
+                        <div class="container" data-aos="fade-up">
+
+                            <div class="row">
+
+                                <div class="col-lg-12 entries">
+                                    <article class="entry" style="background-color: #fff;">
+
+                                        <div class="entry-img">
+                                            <!-- <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid"> -->
+                                        </div>
+
+                                        <h2 class="entry-title">
+                                            <a asp-controller="Home" asp-action="Preview" asp-route-id="@research.Id">
+                                                @research.ResearchName
+                                            </a>
+                                        </h2>
+
+                                        <div class="entry-meta">
+                                            <ul>
+                                                <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a>@research.owner2</a></li>
+                                                <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a><time datetime="2020-01-01">@research.year</time></a></li>
+                                                <li class="d-flex align-items-center">
+                                                    <i class="bi bi-chat-dots"></i> <a asp-controller="Home" asp-action="Comments"
+                                                                                       asp-route-id="@research.Id"> Comments</a>
+                                                </li>
+                                                <li class="d-flex align-items-center"><i class="bi bi-book"></i> <a>@research.reads Reads</a></li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="entry-content">
+                                            <p>
+                                                @research.Discription
+                                            </p>
+                                            <div class="read-more">
+                                                <a asp-controller="Home" asp-action="Preview" asp-route-id="@research.Id">
+                                                    Read More
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                    </article><!-- End blog entry -->
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+
 
                 }
             }

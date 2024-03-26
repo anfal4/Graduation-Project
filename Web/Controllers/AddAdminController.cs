@@ -1,5 +1,6 @@
 ﻿using Core.Entities;
 using Core.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -24,10 +25,14 @@ namespace Web.Controllers
         }
 
         // GET: PortfolioItems
+        [Authorize(Roles = "Researcher, Admins")]
+
         public IActionResult Index()
         {
             return View(_portfolio.Entity.GetAll());
         }
+
+        [Authorize(Roles = "Researcher, Admins")]
 
         // GET: PortfolioItems/Details/5
         public IActionResult Details(Guid? id)
@@ -46,6 +51,7 @@ namespace Web.Controllers
             return View(portfolioItem);
         }
 
+        [Authorize(Roles = "Admins")]
 
         // GET: PortfolioItems/Create
         public IActionResult Create()
@@ -56,6 +62,8 @@ namespace Web.Controllers
         // POST: PortfolioItems/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admins")]
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(NewAdminViewModel model)
@@ -86,6 +94,9 @@ namespace Web.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "Researcher, Admins")]
+
+
         // GET: PortfolioItems/Edit/5
         public IActionResult Edit(Guid? id)
         {
@@ -113,6 +124,8 @@ namespace Web.Controllers
             return View(portfolioViewModel);
         }
 
+
+        [Authorize(Roles = "Researcher, Admins")]
         // POST: PortfolioItems/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -166,6 +179,7 @@ namespace Web.Controllers
         }
 
         // GET: PortfolioItems/Delete/5
+        [Authorize(Roles = "Admins")]
         public IActionResult Delete(Guid? id)
         {
             if (id == null)
@@ -183,6 +197,7 @@ namespace Web.Controllers
         }
 
         // POST: PortfolioItems/Delete/5
+        [Authorize(Roles = "Admins")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteConfirmed(Guid id)

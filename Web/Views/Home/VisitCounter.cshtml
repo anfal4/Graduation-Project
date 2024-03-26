@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Web.ViewModels.VisitorCountViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="padding:90px;">
+    <h1 style="text-align: center; color: #14274E">
+        Total Visits: <b>@ViewBag.UniqueIPCount</b>
+    </h1><br />
+
+    @*<p>
+        <a asp-action="Create" class="btn btn-primary">Create New</a>
+    </p>*@
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.IPAddress)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastVisit)
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IPAddress)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastVisit)
+                    </td>
+
+                    @*<td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        </td>*@
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

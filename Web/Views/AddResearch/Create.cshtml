@@ -8,10 +8,10 @@
 <div style="margin:140px; padding:120px;">
     <h1>Create</h1>
 
-    <h4>New Admin</h4>
+    <h4>New Research</h4>
     <hr />
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-8">
             <form asp-action="Create" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
@@ -21,15 +21,25 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="year" class="control-label"></label>
-                    <input asp-for="year" class="form-control" />
+                    <input type="number" asp-for="year" class="form-control" />
                     <span asp-validation-for="year" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="owner" class="control-label"></label>
+                    <label asp-for="owner" class="control-label">Author1</label>
                     <input asp-for="owner" class="form-control" />
+                    <span asp-validation-for="owner" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="owner2" class="control-label">Author2</label>
+                    <input asp-for="owner2" class="form-control" />
                     @*<select class="form-control" asp-items='new SelectList(ViewData,"Id","FullName")'></select>*@
                     @*<select asp-for="_portfolio2" class="form-control" asp-items="ViewBag.admins"></select>*@
-                    <span asp-validation-for="owner" class="text-danger"></span>
+                    <span asp-validation-for="owner2" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Author3" class="control-label">Author3</label>
+                    <input asp-for="Author3" class="form-control" />
+                    <span asp-validation-for="Author3" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <label asp-for="link" class="control-label"></label>

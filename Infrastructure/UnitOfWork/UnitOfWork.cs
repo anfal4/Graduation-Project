@@ -3,6 +3,7 @@ using Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Infrastructure.UnitOfWork
 {
@@ -25,6 +26,11 @@ namespace Infrastructure.UnitOfWork
         public void Save()
         {
             _context.SaveChanges();
+        }
+
+        public async Task<int> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync();
         }
     }
 }

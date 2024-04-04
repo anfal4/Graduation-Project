@@ -4,14 +4,16 @@ using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240403111253_hi")]
+    partial class hi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,31 +92,6 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("Core.Entities.Comments", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Author")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("DatePosted")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ResearchId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Text")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ResearchId");
-
-                    b.ToTable("comments");
-                });
-
             modelBuilder.Entity("Core.Entities.VisitorCount", b =>
                 {
                     b.Property<int>("Id")
@@ -165,7 +142,7 @@ namespace Infrastructure.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("417cc6ac-d850-4151-92c3-697e3e8397bc"),
+                            Id = new Guid("e6632577-5444-4fd5-91e0-3bccd97ee4b9"),
                             Avatar = "huda4.jpg",
                             Email = "huda.almamory@uobabylon.edu.iq",
                             FullName = "Dr.Huda Naji Nawaf Al-Mamory",
@@ -184,7 +161,7 @@ namespace Infrastructure.Migrations
                     b.Property<string>("Author3")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Comments")
+                    b.Property<int>("Comment")
                         .HasColumnType("int");
 
                     b.Property<string>("Discription")
@@ -344,17 +321,6 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("Core.Entities.Comments", b =>
-                {
-                    b.HasOne("Core.Entities.research", "Research")
-                        .WithMany("comments")
-                        .HasForeignKey("ResearchId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Research");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -404,11 +370,6 @@ namespace Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Core.Entities.research", b =>
-                {
-                    b.Navigation("comments");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,6 +8,6 @@
         public string Avatar { get; set; }
         public string about { get; set; }
 
-        public Address Address { get; set; }
+        //public Address Address { get; set; }
     }
 }
